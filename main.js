@@ -27,10 +27,10 @@ const arrayCardNames = Array(
 const arrayCardImageResources = Array(
     "c_yavorphoto.jpg", "c_4ai.jpg", "c_4toslu4ilos.jpg", "c_chill.jpg", "c_dab2015.jpg", "c_draka.jpg", "c_druzya.jpg", "c_fingers.jpg", "c_klass.jpg", "c_klasspogul9l.jpg", "c_krasavec.jpg", "c_o4karik.jpg", "c_shock.jpg", "c_smotru.jpg", "c_sosu.jpg", "c_vladick.jpg", "c_yaga.jpg", "c_yakrut.jpg", "c_nalehkoy.jpg", "c_fullhd.jpg",
     "r_vin.jpg", "r_aaaa.jpg", "r_arslan.jpg", "r_azat.jpg", "r_burgers.jpg", "r_cock.jpg", "r_condoms.jpg", "r_dab.jpg", "r_egypt.jpg", "r_eskimos.jpg", "r_foku_palm.jpg", "r_namoreletala.jpg", "r_otdixau.jpg", "r_poet.jpg", "r_religion.jpg", "r_rustam.jpg", "r_rustsharip.jpg", "r_superklass.jpg", "r_timetraveller.jpg", "r_paketysdavaites.jpg", "r_dushatpomogite.jpg",
-    "superulitka.jpg", "superchill.jpg", "superplotnikova.jpg", "superrobot.jpg", "superskate.png", "supertycadjusa.jpg",
+    "superulitka.jpg", "superchill.jpg", "superplotnikova.jpg", "superrobot.jpg", "superskate.PNG", "supertycadjusa.jpg",
     "insane_c_yavorphoto.jpg", "insane_c_4ai.jpg", "insane_c_4toslu4ilos.jpg", "insane_c_chill.jpg", "insane_c_dab2015.jpg", "insane_c_draka.jpg", "insane_c_druzya.jpg", "insane_c_fingers.jpg", "insane_c_klass.jpg", "insane_c_klasspogul9l.jpg", "insane_c_krasavec.jpg", "insane_c_o4karik.jpg", "insane_c_shock.jpg", "insane_c_smotru.jpg", "insane_c_sosu.jpg", "insane_c_vladick.jpg", "insane_c_yaga.jpg", "insane_c_yakrut.jpg", "insane_c_nalehkoy.jpg", "insane_c_fullhd.jpg",
     "insane_r_vin.jpg", "insane_r_aaaa.jpg", "insane_r_arslan.jpg", "insane_r_azat.jpg", "insane_r_burgers.jpg", "insane_r_cock.jpg", "insane_r_condoms.jpg", "insane_r_dab.jpg", "insane_r_egypt.jpg", "insane_r_eskimos.jpg", "insane_r_foku_palm.jpg", "insane_r_namoreletala.jpg", "insane_r_otdixau.jpg", "insane_r_poet.jpg", "insane_r_religion.jpg", "insane_r_rustam.jpg", "insane_r_rustsharip.jpg", "insane_r_superklass.jpg", "insane_r_timetraveller.jpg", "insane_r_paketysdavaites.jpg", "insane_r_dushatpomogite.jpg",
-    "insane_superulitka.jpg", "insane_superchill.jpg", "insane_superplotnikova.jpg", "insane_superrobot.jpg", "insane_superskate.png", "insane_supertycadjusa.jpg"
+    "insane_superulitka.jpg", "insane_superchill.jpg", "insane_superplotnikova.jpg", "insane_superrobot.jpg", "insane_superskate.PNG", "insane_supertycadjusa.jpg"
 );
 const arrayCardBaseSellPrices = Array(
     400, 300, 300, 300, 450, 450, 300, 250, 300, 200, 480, 520, 520, 300, 400, 400, 200, 400, 350, 200,
