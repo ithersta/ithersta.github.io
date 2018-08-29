@@ -1,5 +1,9 @@
-﻿const btnPlay = document.getElementById("btnPlay");
+const btnPlay = document.getElementById("btnPlay");
 const btnSell = document.getElementById("btnSell");
+const btnClassic = document.getElementById("btnClassic");
+const btnInsane = document.getElementById("btnInsane");
+const btnsPlay = document.getElementById("btnsPlay");
+const btnsMode = document.getElementById("btnsMode");
 const txtName = document.getElementById("txtName");
 const txtMoney = document.getElementById("txtMoney");
 const imgCard = document.getElementById("imgCard");
@@ -47,23 +51,23 @@ let minSellQ;
 let growSellQ;
 let degrowSellQ;
 let money;
-let sellQ;
+let sellQ = 1;
 let inflationRate;
-let buyPrice;
+let baseBuy;
 
 let isSold = false;
 let cardRareness = 0;
 let cardIndex = 0;
 let cardCost = 0;
+let cardBuy;
 let randSellQ = 1.0;
-let helpSellQ = 1.0;
+let inflation = 1;
 
 
 btnPlay.onclick = function () {
-    startGame(false);
     btnPlay.classList.add("loading", "disabled");
     btnSell.classList.add("disabled");
-    updateMoney(-buyPrice);
+    updateMoney(-cardBuy);
     setTimeout(function () {
         generateCard();
     }, 100);
@@ -75,6 +79,14 @@ btnSell.onclick = function () {
     isSold = true;
     updateMoney(cardCost);
     updateBtn();
+};
+
+btnClassic.onclick = function() {
+    startGame(false);
+};
+
+btnInsane.onclick = function() {
+    startGame(true);
 };
 
 preload.onload = function () {
@@ -99,21 +111,23 @@ function generateCard() {
             break;
     }
 
-    let cardID = randomInteger(cardRanges[cardRareness * 2], cardRanges[cardRareness * 2 + 1]);
+    const cardID = randomInteger(cardRanges[cardRareness * 2], cardRanges[cardRareness * 2 + 1]);
     cardIndex = arrayCardIds.indexOf(cardID);
     imgPreload(cardIndex);
 }
 
 function imgPreload(index) {
-    preload.src = "/media/" + arrayCardImageResources[index];
+    preload.src = "/untitled2/media/" + arrayCardImageResources[index];
 }
 
 function showCard(index) {
-    imgCard.src = "/media/" + arrayCardImageResources[index];
+    imgCard.src = "/untitled2/media/" + arrayCardImageResources[index];
     txtName.innerText = arrayCardNames[index];
     txtName.style.color = rareColors[cardRareness];
-    cardCost = Math.floor(arrayCardBaseSellPrices[index] * sellQ * randSellQ * helpSellQ);
+    cardCost = Math.floor(arrayCardBaseSellPrices[index] * sellQ * randSellQ * inflation);
+    cardBuy = Math.floor(baseBuy * inflation);
     btnSell.innerText = "Продать за " + cardCost;
+    btnPlay.innerText = "Купить за " + cardBuy;
 }
 
 function iterateQ() {
@@ -123,33 +137,13 @@ function iterateQ() {
     } else sellQ *= growSellQ;
     if (sellQ > maxSellQ) sellQ = maxSellQ;
     else if (sellQ < minSellQ) sellQ = minSellQ;
-    randSellQ = randomInteger(85, 115) / 100;
-    switch (true) {
-        case (money < 250):
-            helpSellQ = 1.4;
-            break;
-        case (money < 1000):
-            helpSellQ = 1.2;
-            break;
-        case (money < 6000):
-            helpSellQ = 1.1;
-            break;
-        case (money < 20000):
-            helpSellQ = 1.0;
-            break;
-        case (money < 25000):
-            helpSellQ = 0.9;
-            break;
-        case (money < 30000):
-            helpSellQ = 0.75;
-            break;
-        case true:
-            helpSellQ = 0.6;
-            break;
-    }
+    randSellQ = randomInteger(95, 105) / 100;
+    inflation *= inflationRate;
 }
 
 function startGame(insane) {
+    btnsMode.style.display = 'none';
+    btnsPlay.removeAttribute("style");
     if (insane) {
         cardRanges = Array(3000, 3019, 4000, 4020, 5000, 5005);
         maxSellQ = 3.88;
@@ -157,9 +151,8 @@ function startGame(insane) {
         growSellQ = 1.2;
         degrowSellQ = 0.6;
         money = 20000;
-        sellQ = 1.0;
         inflationRate = 1.2;
-        buyPrice = 500;
+        baseBuy = 500;
     }
     else {
         cardRanges = Array(0, 19, 1000, 1020, 2000, 2005);
@@ -168,21 +161,19 @@ function startGame(insane) {
         growSellQ = 1.2;
         degrowSellQ = 0.6;
         money = 20000;
-        sellQ = 1.0;
         inflationRate = 1;
-        buyPrice = 500;
+        baseBuy = 500;
     }
+    cardBuy = baseBuy;
 
 }
 
 function randomInteger(min, max) {
-    var rand = min + Math.random() * (max + 1 - min);
-    rand = Math.floor(rand);
-    return rand;
+    return Math.floor(min + Math.random() * (max + 1 - min));
 }
 
 function updateBtn() {
-    if (money >= buyPrice) {
+    if (money >= cardBuy) {
         btnPlay.classList.remove("disabled")
     }
     else {
@@ -192,5 +183,5 @@ function updateBtn() {
 
 function updateMoney(diff) {
     money += diff;
-    txtMoney.innerText = money;
+    txtMoney.innerText = parseFloat(money/1000).toFixed(1) + "K";
 }
