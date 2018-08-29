@@ -1,4 +1,4 @@
-const btnPlay = document.getElementById("btnPlay");
+﻿const btnPlay = document.getElementById("btnPlay");
 const btnSell = document.getElementById("btnSell");
 const btnClassic = document.getElementById("btnClassic");
 const btnInsane = document.getElementById("btnInsane");
@@ -117,11 +117,11 @@ function generateCard() {
 }
 
 function imgPreload(index) {
-    preload.src = "/untitled2/media/" + arrayCardImageResources[index];
+    preload.src = "/media/" + arrayCardImageResources[index];
 }
 
 function showCard(index) {
-    imgCard.src = "/untitled2/media/" + arrayCardImageResources[index];
+    imgCard.src = "/media/" + arrayCardImageResources[index];
     txtName.innerText = arrayCardNames[index];
     txtName.style.color = rareColors[cardRareness];
     cardCost = Math.floor(arrayCardBaseSellPrices[index] * sellQ * randSellQ * inflation);
