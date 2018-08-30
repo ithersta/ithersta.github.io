@@ -127,7 +127,7 @@ function showCard(index) {
     cardCost = Math.floor(arrayCardBaseSellPrices[index] * sellQ * randSellQ * inflation);
     cardBuy = Math.floor(baseBuy * inflation);
     btnSell.innerText = "Продать за " + cardCost;
-    btnPlay.innerText = "Купить за " + cardBuy;
+    btnPlay.innerText = "Играть за " + cardBuy;
 }
 
 function iterateQ() {
