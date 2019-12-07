@@ -1,7 +1,7 @@
 {
   "content0": {
-    "title": "Notification",
-    "text": "*no info*",
+    "title": "Important info",
+    "text": "My app got *deleted* from Google Play",
     "display": true
   }
 }
