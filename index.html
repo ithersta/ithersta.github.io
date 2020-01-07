@@ -1,0 +1,28 @@
+<head>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <script type="text/javascript">
+    import {MDCRipple} from '@material/ripple';
+
+const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
+    </script>
+    <style>
+    .center {
+        margin: auto;
+    }
+    .right {
+        float: right;
+    }
+    </style>
+  </head>
+  <body>
+        <div class="mdc-layout-grid">
+                <div class="mdc-layout-grid__inner">
+                  <div class="mdc-layout-grid__cell center">
+                        <h6 class="mdc-typography--headline6">Итрика.Кейс SUPER</h6>
+                      <button class="mdc-button mdc-button--raised right">  
+                          <span class="mdc-button__ripple"></span>Скачать</button></div>
+                </div>
+              </div>
+  </body>
